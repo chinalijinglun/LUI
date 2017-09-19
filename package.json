@@ -1,0 +1,45 @@
+{
+	"name": "ljl-ui",
+	"version": "0.1.1",
+	"description": "A Simple CSS framework",
+	"homepage": "https://lijinglun.com",
+	"repository": "",
+	"license": "MIT",
+	"author": "lijinglun <281965992@qq.com>",
+	"main": "dist/ljl-ui.css",
+	"keywords": [
+		"css",
+		"css3",
+		"sass",
+		"front-end",
+		"framework"
+	],
+	"dependencies": {
+		"normalize.css": "~5.0.0"
+	},
+	"devDependencies": {
+		"autoprefixer": "^6.5.4",
+		"editorconfig-tools": "^0.1.1",
+		"eslint": "^3.14.0",
+		"eslint-config-styled": "^0.0.0",
+		"node-sass": "^3.13.1",
+		"npm-run-all": "^2.3.0",
+		"postcss-cli": "^2.6.0",
+		"rimraf": "^2.5.4",
+		"onchange": "^2.5.0"
+	},
+	"engines": {
+		"node": ">=4"
+	},
+	"scripts": {
+		"start": "run-p build watch",
+		"build": "run-s clean sass autoprefixer",
+		"clean": "rimraf dist",
+		"sass": "node-sass --output-style expanded src/ljl-ui.scss dist/ljl-ui.css && node-sass --output-style compressed src/ljl-ui.scss dist/ljl-ui.min.css && node-sass --output-style expanded src/themes/ljl-ui-themes.scss dist/ljl-ui-themes.css && node-sass --output-style compressed src/themes/ljl-ui-themes.scss dist/ljl-ui-themes.min.css",
+		"sass-doc": "node-sass --output-style expanded examples/sass/doc.scss examples/css/doc.css",
+		"autoprefixer": "postcss -u autoprefixer --no-map.inline --autoprefixer.browsers \"last 1 versions\" -r dist/*.css",
+		"watch": "onchange src -- run-p build",
+		"ljl":"echo I am Lijinglun",
+		"lll":"echo i a superman"
+	}
+}
